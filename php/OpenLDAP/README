@@ -1,0 +1,21 @@
+**************************************
+TITLE: OpenLDAP_Samba_Password_Expire_Notify
+WRITTEN BY: adrenlinerush
+LAST MOD: 11/3/09
+
+RELEASED UNDER GPL LICENSE 
+**************************************
+
+must modify the samba.schema file for ordering on gentoo its located in /etc/openldap/schema/samaba.schema
+
+attributetype ( 1.3.6.1.4.1.7165.2.1.29 NAME 'sambaPwdMustChange'
+	DESC 'Timestamp of when the password will expire'
+	EQUALITY integerMatch
+	ORDERING integerOrderingMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+
+set the values to appeal in OpenLDAPPasswdExpireNotify.config.php
+
+until i get the email put into the config file you'll probably want to change the email text in the class file
+
+class can be referenced as in the GenerateExpireList.php and SendEmailNotification.php
